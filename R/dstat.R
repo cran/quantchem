@@ -1,5 +1,5 @@
 "dstat" <-
-function (x, expected=median(as.vector(as.matrix(x))), sort = TRUE, inverse.f = TRUE, na.rm = FALSE, conf.level=0.95, alternative = c("two.sided", "less", "greater")) 
+function (x, expected=median(unlist(x)), sort = TRUE, inverse.f = TRUE, na.rm = FALSE, conf.level=0.95, alternative = c("two.sided", "less", "greater")) 
 {
 
 vname = deparse(substitute(x))
@@ -83,11 +83,11 @@ else
 res$vartest = rbind(res$vartest,c(vtest$estimate,vtest$conf.int,vtest$statistic,vtest$p.value));
 
 ttest = t.test(x[,i],x[,j],conf.int=TRUE,conf.level=conf.level);
-res$ttest = rbind(res$ttest,c(-diff(ttest$estimate),ttest$conf.int,ttest$statistic,ttest$p.value));a
+res$ttest = rbind(res$ttest,c(-diff(ttest$estimate),ttest$conf.int,ttest$statistic,ttest$p.value));
 atest = ansari.test(x[,i],x[,j],conf.int=TRUE,conf.level=conf.level);
-res$atest = rbind(res$atest,c(atest$estimate,atest$conf.int,atest$statistic,atest$p.value));a
+res$atest = rbind(res$atest,c(atest$estimate,atest$conf.int,atest$statistic,atest$p.value));
 wtest = wilcox.test(x[,i],x[,j],conf.level=conf.level,conf.int=TRUE);
-res$wtest = rbind(res$wtest,c(wtest$estimate,wtest$conf.int,wtest$statistic,wtest$p.value));a
+res$wtest = rbind(res$wtest,c(wtest$estimate,wtest$conf.int,wtest$statistic,wtest$p.value));
 rownames(res$vartest)[nrow(res$vartest)]=paste(names(x)[i],names(x)[j],sep="-");
 rownames(res$ttest)[nrow(res$ttest)]=paste(names(x)[i],names(x)[j],sep="-");
 rownames(res$atest)[nrow(res$atest)]=paste(names(x)[i],names(x)[j],sep="-");
@@ -99,7 +99,7 @@ colnames(res$ttest)=c("Diff","Lower","Upper","t","Pr(>t)");
 colnames(res$atest)=c("Diff","Lower","Upper","AB","Pr(>AB)");
 colnames(res$wtest)=c("Diff","Lower","Upper","W","Pr(>W)");
 
-avector = as.vector(as.matrix(x));
+avector = unlist(x);
 afactor = c()
 for (i in 1:length(x)) { afactor=c(afactor,rep(names(x)[i],nrow(x))); }
 afactor = as.factor(afactor);

@@ -5,7 +5,7 @@
   Performs comprehensive statistical evaluation of quantitative analysis results.
 }
 \usage{
-dstat(x, expected = median(as.vector(as.matrix(x))), sort = TRUE, inverse.f = TRUE,
+dstat(x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
   na.rm = FALSE, conf.level = 0.95, alternative = c("two.sided", "less", "greater"))
 }
 \arguments{
@@ -46,6 +46,7 @@ dstat(x, expected = median(as.vector(as.matrix(x))), sort = TRUE, inverse.f = TR
 
 }
 \author{ Lukasz Komsta }
+\seealso{ \code{\link{vstat}} }
 \note{
 
 	This function calculates always *both* parametric and nonparametric tests, and

@@ -9,7 +9,7 @@
 }
 \usage{data(tablets)}
 \source{
-  This data is taken from own measurements.
+  (Data taken from own measurements)
 }
 \examples{
 data(tablets)

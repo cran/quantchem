@@ -1,8 +1,8 @@
 Package: quantchem
 Type: Package
 Title: Quantitative chemical analysis: calibration and evaluation of results
-Version: 0.1-1
-Date: 2005-09-11
+Version: 0.11-1
+Date: 2005-09-18
 Depends: R (>= 2.0), MASS, outliers 
 Author: Lukasz Komsta
 Maintainer: Lukasz Komsta <luke@novum.am.lublin.pl>
@@ -17,4 +17,4 @@ Description: Statistical evaluation of calibration curves
  and statistical evaluation of results (comparison of
  precision and accuracy by common tests).
 License: GPL
-Packaged: Sun Sep 11 21:28:56 2005; Lukke
+Packaged: Mon Sep 19 19:26:39 2005; Lukke

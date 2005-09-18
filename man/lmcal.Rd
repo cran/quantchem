@@ -102,7 +102,7 @@ Coleman, D.E., Vanatta, L.E. (1999) Lack-of-fit testing of ion chromatographic c
 }
 \author{ Lukasz Komsta }
 \seealso{ \code{\link{lm}}, \code{\link{rlm}}, \code{\link{boxcox}}}
-\notes{
+\note{
 
 	This function performs *no* decision which model should be chosen!
 	Such decision should be always made by analyst.

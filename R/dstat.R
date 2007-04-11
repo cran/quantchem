@@ -1,7 +1,7 @@
 "dstat" <-
 function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE, 
     na.rm = FALSE, conf.level = 0.95, alternative = c("two.sided", 
-        "less", "greater")) 
+        "less", "greater"), ansari = FALSE) 
 {
     vname = deparse(substitute(x))
     means = function(x) {
@@ -87,10 +87,12 @@ function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
                   conf.level = conf.level)
                 res$ttest = rbind(res$ttest, c(-diff(ttest$estimate), 
                   ttest$conf.int, ttest$statistic, ttest$p.value))
-                atest = ansari.test(x[, i], x[, j], conf.int = TRUE, 
+              if (ansari) {
+		  atest = ansari.test(x[, i], x[, j], conf.int = TRUE, 
                   conf.level = conf.level)
                 res$atest = rbind(res$atest, c(atest$estimate, 
                   atest$conf.int, atest$statistic, atest$p.value))
+			}
                 wtest = wilcox.test(x[, i], x[, j], conf.level = conf.level, 
                   conf.int = TRUE)
                 res$wtest = rbind(res$wtest, c(wtest$estimate, 
@@ -99,9 +101,9 @@ function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
                   names(x)[j], sep = "-")
                 rownames(res$ttest)[nrow(res$ttest)] = paste(names(x)[i], 
                   names(x)[j], sep = "-")
-                rownames(res$atest)[nrow(res$atest)] = paste(names(x)[i], 
+                  if (ansari) rownames(res$atest)[nrow(res$atest)] = paste(names(x)[i], 
                   names(x)[j], sep = "-")
-                rownames(res$wtest)[nrow(res$wtest)] = paste(names(x)[i], 
+		  rownames(res$wtest)[nrow(res$wtest)] = paste(names(x)[i], 
                   names(x)[j], sep = "-")
             }
         }
@@ -109,7 +111,7 @@ function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
             "F", "Pr(>F)")
         colnames(res$ttest) = c("Diff", "Lower", "Upper", "t", 
             "Pr(>t)")
-        colnames(res$atest) = c("Diff", "Lower", "Upper", "AB", 
+        if (ansari) colnames(res$atest) = c("Diff", "Lower", "Upper", "AB", 
             "Pr(>AB)")
         colnames(res$wtest) = c("Diff", "Lower", "Upper", "W", 
             "Pr(>W)")
@@ -137,7 +139,7 @@ function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
                 res$vartest = sorted(res$vartest, 5)
             if (!is.null(res$ttest)) 
                 res$ttest = sorted(res$ttest, 5)
-            if (!is.null(res$atest)) 
+            if (ansari && !is.null(res$atest))
                 res$atest = sorted(res$atest, 5)
             if (!is.null(res$wtest)) 
                 res$wtest = sorted(res$wtest, 5) }
@@ -161,7 +163,7 @@ function (x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
         cat("\nDifferences between means:\n")
         printCoefmat(res$ttest)
     }
-    if (!is.null(res$atest)) {
+    if (ansari && !is.null(res$atest)) {
         cat("\nDifferences in scale:\n")
         printCoefmat(res$atest)
     }

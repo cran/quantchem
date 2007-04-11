@@ -6,7 +6,7 @@
 }
 \usage{
 dstat(x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
-  na.rm = FALSE, conf.level = 0.95, alternative = c("two.sided", "less", "greater"))
+  na.rm = FALSE, conf.level = 0.95, alternative = c("two.sided", "less", "greater"), ansari = FALSE)
 }
 \arguments{
   \item{x}{ a vector of results, of a dataframe with results to compare }
@@ -17,6 +17,8 @@ dstat(x, expected = median(unlist(x)), sort = TRUE, inverse.f = TRUE,
   \item{na.rm}{ logical: should NA values be removed? }
   \item{conf.level}{ level for calculate confidence intervals }
   \item{alternative}{ alternative for all tests performed. }
+  \item{ansari}{ due to reports of errors on some datasets, the ansari.test() on data is turned
+                 off by default since 0.12. you can turn it on by setting this variable to TRUE }
 }
 \details{
    If argument is vector, several one-row matrices are produced (see below). If argument

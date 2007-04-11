@@ -66,8 +66,7 @@ sha = shapiro.test(residuals(obj$models[[i]]));
 residual = rbind(residual,c(
 quantile(residuals(obj$models[[i]])),
 sha$statistic,
-sha$p.value,
-));
+sha$p.value));
 if (is.null(summary(obj$models[[i]])$adj.r.squared)) { adj.r = NA; }
 else { adj.r = summary(obj$models[[i]])$adj.r.squared; }
  

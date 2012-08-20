@@ -9,8 +9,8 @@
 
 }
 \usage{
-summary.lmcal(object, sort.models = FALSE, ...)
-summary.nlscal(object, sort.models = FALSE, ...)
+\method{summary}{lmcal}(object, sort.models = FALSE, ...)
+\method{summary}{nlscal}(object, sort.models = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

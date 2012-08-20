@@ -9,7 +9,7 @@
 
 }
 \usage{
-confint.cal(object, parm, level = 0.95, sort.models = FALSE, ...)
+\method{confint}{cal}(object, parm, level = 0.95, sort.models = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

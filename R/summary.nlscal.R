@@ -18,11 +18,11 @@ durbin = function (obj)
 xf = as.factor(obj$x);
 xfp = (all(sapply(split(obj$x,xf),length) >= 2))
 
-coefficients = c()
-variances = c()
-fit = c();
-residual = c();
-sens = c();
+coefficients = NULL
+variances = NULL
+fit = NULL
+residual = NULL
+sens = NULL
 
 for (i in 1:length(obj$models)) {
 
@@ -45,7 +45,7 @@ if (inherits(obj$models[[i]],c("nls","loess"))) {
    residual = rbind(residual,c(
                                 quantile(residuals(obj$models[[i]])),
                                 sha$statistic,
-                                sha$p.value,
+                                sha$p.value
                                 ));
 rownames(residual)[nrow(residual)]=names(obj$models)[i]
 }

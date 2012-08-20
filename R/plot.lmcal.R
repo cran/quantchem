@@ -192,10 +192,10 @@ abline(v=obj$wy,lty=lines[2],col=colors[2]);
 mtext(as.character(obj$wy),at=obj$wy);
 xlab="Lambda"; 
 ylab="Log - Likelihood";
-plot(fit$bx$x,fit$bx$y,main="Box-Cox on x",xlab=xlab,ylab=ylab,type="l",col=colors[1],lty=lines[1]);
+plot(x$bx$x,x$bx$y,main="Box-Cox on x",xlab=xlab,ylab=ylab,type="l",col=colors[1],lty=lines[1]);
 abline(v=obj$px,lty=lines[2],col=colors[2]);
 mtext(as.character(obj$px),at=obj$px);
-plot(fit$by$x,fit$by$y,main="Box-Cox on y",xlab=xlab,ylab=ylab,type="l",col=colors[1],lty=lines[1]);
+plot(x$by$x,x$by$y,main="Box-Cox on y",xlab=xlab,ylab=ylab,type="l",col=colors[1],lty=lines[1]);
 abline(v=obj$py,lty=lines[2],col=colors[2]);
 mtext(as.character(obj$py),at=obj$py);
 

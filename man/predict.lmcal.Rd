@@ -7,8 +7,8 @@
   calibration models.
 }
 \usage{
-predict.lmcal(object, dataset, conf.int = 0.95, ...)
-predict.nlscal(object, dataset, ...)
+\method{predict}{lmcal}(object, dataset, conf.int = 0.95, ...)
+\method{predict}{nlscal}(object, dataset, ...)
 }
 \arguments{
   \item{object}{ an object of class 'lmcal' or 'nlscal', respectively }

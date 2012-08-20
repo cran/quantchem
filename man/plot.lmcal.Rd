@@ -7,10 +7,10 @@
   Plot various plots commonly used to illustrate callibration.
 }
 \usage{
-plot.lmcal(x, type = c("curve", "residuals", "chronologic", "qqplot", "cook",
+\method{plot}{lmcal}(x, type = c("curve", "residuals", "chronologic", "qqplot", "cook",
   "optimization"), trend = TRUE, confidence = TRUE, prediction = TRUE, 
   lines = c(1, 2, 3, 4), colors = c(1, 1, 1, 1, 1), xlab = NULL, ylab = NULL, ...)
-plot.nlscal(x, type = c("curve", "residuals", "chronologic", "qqplot"),
+\method{plot}{nlscal}(x, type = c("curve", "residuals", "chronologic", "qqplot"),
   trend = TRUE, lines = c(1, 2, 3, 4), colors = c(1, 1, 1, 1, 1), xlab = NULL, 
   ylab = NULL, ...)
 }

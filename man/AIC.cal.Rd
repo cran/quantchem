@@ -8,7 +8,7 @@ inheriting from class 'cal' ('lmcal' and 'nlscal').
 
 }
 \usage{
-AIC.cal(object, ..., k = 2)
+\method{AIC}{cal}(object, ..., k = 2)
 }
 \arguments{
   \item{object}{ a fitted calibration model of class 'lmcal' or 'nlscal'}

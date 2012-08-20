@@ -6,7 +6,7 @@
   Extract residuals of all fitted calibration models.
 }
 \usage{
-residuals.cal(object, ...)
+\method{residuals}{cal}(object, ...)
 }
 \arguments{
   \item{object}{ an object inheriting from 'cal' ('lmcal' or 'nlscal') }

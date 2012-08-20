@@ -8,8 +8,8 @@
 
 }
 \usage{
-anova.lmcal(object, ...)
-anova.nlscal(object, ...)
+\method{anova}{lmcal}(object, ...)
+\method{anova}{nlscal}(object, ...)
 }
 \arguments{
   \item{object}{ an object of class 'lmcal' or 'nlscal' }
